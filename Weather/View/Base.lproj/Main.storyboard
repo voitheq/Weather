@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Weather View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7zT-VD-d7X">
+                                <rect key="frame" x="87.5" y="169.5" width="200" height="328"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJU-xc-69f">
+                                        <rect key="frame" x="91.5" y="0.0" width="17.5" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark200x200" translatesAutoresizingMaskIntoConstraints="NO" id="qK7-2R-dhM">
+                                        <rect key="frame" x="0.0" y="64" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qK7-2R-dhM" secondAttribute="height" multiplier="1:1" id="BSY-CI-7i2"/>
+                                            <constraint firstAttribute="width" constant="200" id="Fcc-ON-XFV"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVe-At-jpX">
+                                        <rect key="frame" x="91.5" y="280" width="17.5" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkc-tT-ccn">
+                                <rect key="frame" x="162.5" y="601" width="50" height="50"/>
+                                <state key="normal" image="arrowBlue50x50">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="townButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IKR-Aw-ljM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wkc-tT-ccn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6tC-4t-iov"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wkc-tT-ccn" secondAttribute="bottom" constant="16" id="TTI-vc-0mQ"/>
+                            <constraint firstItem="7zT-VD-d7X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cFk-Z3-gFr"/>
+                            <constraint firstItem="7zT-VD-d7X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gWQ-zP-5nw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="temperatureLabel" destination="uJU-xc-69f" id="BZx-Ev-jdH"/>
+                        <outlet property="townLabel" destination="oVe-At-jpX" id="MIn-oL-loX"/>
+                        <outlet property="weatherIcon" destination="qK7-2R-dhM" id="KEi-5O-DXO"/>
+                        <segue destination="mnj-9r-hO4" kind="presentation" identifier="TownSegue" id="9Bc-qG-4Ol"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="196" y="81.409295352323838"/>
+        </scene>
+        <!--Town View Controller-->
+        <scene sceneID="qJi-bK-5hS">
+            <objects>
+                <viewController id="mnj-9r-hO4" customClass="TownViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ag3-Ec-8kf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QIZ-KF-PCc">
+                                <rect key="frame" x="0.0" y="295.5" width="375" height="76"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Town" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BYF-eC-XYI">
+                                        <rect key="frame" x="16" y="0.0" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjv-rO-8WP">
+                                        <rect key="frame" x="144" y="46" width="87" height="30"/>
+                                        <state key="normal" title="Get Weather">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getWeatherButtonTapped:" destination="mnj-9r-hO4" eventType="touchUpInside" id="dpk-lx-h3b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BYF-eC-XYI" secondAttribute="trailing" constant="16" id="8gE-H9-MZC"/>
+                                    <constraint firstItem="BYF-eC-XYI" firstAttribute="leading" secondItem="QIZ-KF-PCc" secondAttribute="leading" constant="16" id="Yg6-5A-AJt"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bw-rX-15i">
+                                <rect key="frame" x="162.5" y="601" width="50" height="50"/>
+                                <state key="normal" image="arrowWhite50x50">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="mnj-9r-hO4" eventType="touchUpInside" id="zlS-Dk-srE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2196078431372549" green="0.71372549019607845" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QIZ-KF-PCc" firstAttribute="centerX" secondItem="ag3-Ec-8kf" secondAttribute="centerX" id="JRA-9B-k3Q"/>
+                            <constraint firstItem="2bw-rX-15i" firstAttribute="centerX" secondItem="ag3-Ec-8kf" secondAttribute="centerX" id="LUq-yM-9lz"/>
+                            <constraint firstItem="mMu-57-QIr" firstAttribute="bottom" secondItem="2bw-rX-15i" secondAttribute="bottom" constant="16" id="hnv-mf-KiY"/>
+                            <constraint firstItem="QIZ-KF-PCc" firstAttribute="width" secondItem="ag3-Ec-8kf" secondAttribute="width" id="pm0-i1-gQw"/>
+                            <constraint firstItem="QIZ-KF-PCc" firstAttribute="centerY" secondItem="ag3-Ec-8kf" secondAttribute="centerY" id="w6A-Ih-0ZK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mMu-57-QIr"/>
+                    </view>
+                    <connections>
+                        <outlet property="townTextField" destination="BYF-eC-XYI" id="iv7-lH-nNV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9e-1J-F7l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981.60000000000002" y="80.50974512743629"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowBlue50x50" width="50" height="50"/>
+        <image name="arrowWhite50x50" width="50" height="50"/>
+        <image name="questionmark200x200" width="200" height="200"/>
+    </resources>
+</document>
